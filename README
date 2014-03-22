@@ -1,0 +1,4 @@
+# helm-hoogle.el --- Source and configured helm for searching hoogle #
+
+This package provides a helm source `helm-source-hoogle' and a
+configured helm `helm-hoogle' to search hoogle online using helm.
