@@ -8,8 +8,7 @@
 (with-no-warnings
   (require 'cl))
 
-(defvar helm-hoogle-executable-args
-  )
+(defvar helm-hoogle-executable-args '("-n" "50"))
 
 (defvar helm-source-hoogle
   '((name . "Hoogle")
@@ -23,7 +22,7 @@
 
 (defun helm-hoogle-search ()
   (with-temp-buffer
-    (call-process "hoogle" nil t nil "search" "-n 50"
+    (call-process "hoogle" nil t nil "search" (s-join " " helm-hoogle-executable-args)
                   helm-pattern)
     (let ((lines (split-string
                   (buffer-substring-no-properties (point-min) (point-max)) "\n")))
