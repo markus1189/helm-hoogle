@@ -24,7 +24,7 @@
 (defun helm-hoogle-search ()
   (with-temp-buffer
     (call-process "hoogle" nil t nil "search" "-n 50"
-                  (car (split-string helm-pattern " ")))
+                  helm-pattern)
     (let ((lines (split-string
                   (buffer-substring-no-properties (point-min) (point-max)) "\n")))
       (cl-loop for s in lines collect `(,s . ,s)))))
