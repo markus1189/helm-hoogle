@@ -32,16 +32,6 @@
 
 (defvar helm-hoogle-executable-args '("-n" "50"))
 
-(defvar helm-source-hoogle
-  '((name . "Hoogle")
-    (volatile)
-    (requires-pattern . 2)
-    (candidates-process . helm-hoogle-search)
-    (action . (("Kill whole item" . helm-hoogle--kill-item)
-               ("Kill type" . helm-hoogle--kill-type)
-               ("Kill name" . helm-hoogle--kill-name)
-               ("Kill module" . helm-hoogle--kill-module)))))
-
 (defun helm-hoogle-search ()
   (with-temp-buffer
     (call-process "hoogle" nil t nil "search" (s-join " " helm-hoogle-executable-args)
@@ -78,6 +68,17 @@
 
 (defun helm-hoogle--kill-name (item)
   (helm-hoogle-action-on--item-name 'kill-new item))
+
+(defvar helm-source-hoogle
+  '((name . "Hoogle")
+    (volatile)
+    (requires-pattern . 2)
+    (match . ((lambda (x) t)))
+    (candidates-process . helm-hoogle-search)
+    (action . (("Kill whole item" . helm-hoogle--kill-item)
+               ("Kill type" . helm-hoogle--kill-type)
+               ("Kill name" . helm-hoogle--kill-name)
+               ("Kill module" . helm-hoogle--kill-module)))))
 
 (defun helm-hoogle ()
   (interactive)
