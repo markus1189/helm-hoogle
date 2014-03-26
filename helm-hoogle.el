@@ -1,12 +1,34 @@
-;;; helm-hoogle.el --- Source and configured helm for searching hoogle:
+;;; helm-hoogle.el --- Use helm to search hoogle
+
+;; Copyright (C) 2014 Markus Hauck
+
+;; Author: Markus Hauck <markus1189@gmail.com>
+;; Maintainer: Markus Hauck <markus1189@gmail.com>
+;; Keywords: helm hoogle haskell
+;; Version: 0.0.1
+;; Package-requires: ((helm "1.6.0"))
+
+;; This program is free software; you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
-;; This package provides a helm source `helm-source-hoogle' and a
-;; configured helm `helm-hoogle' to search hoogle offline.
+;;
+;; With this package, you can use `helm-hoogle' to search hoogle as
+;; you would do normally and get incremental helm matching.
 
 ;;; Code:
-(with-no-warnings
-  (require 'cl))
+(require 'helm)
+(require 'cl-lib)
 
 (defvar helm-hoogle-executable-args '("-n" "50"))
 
