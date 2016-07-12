@@ -6,7 +6,7 @@
 ;; Maintainer: Markus Hauck <markus1189@gmail.com>
 ;; Keywords: helm hoogle haskell
 ;; Version: 0.0.1
-;; Package-requires: ((helm "1.6.0"))
+;; Package-Requires: ((helm "1.6.0") (s "1.11.0"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -29,6 +29,7 @@
 ;;; Code:
 (require 'helm)
 (require 'cl-lib)
+(require 's)
 
 (defvar helm-hoogle-executable-args '("-n" "50"))
 
