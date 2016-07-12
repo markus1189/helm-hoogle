@@ -1,4 +1,4 @@
+(source gnu)
 (source melpa)
 
-(depends-on "helm")
-(files "helm-hoogle.el")
+(package-file "helm-hoogle.el")
