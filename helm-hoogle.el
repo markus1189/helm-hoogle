@@ -85,3 +85,4 @@
   (helm :sources '(helm-source-hoogle)))
 
 (provide 'helm-hoogle)
+;;; helm-hoogle.el ends here
